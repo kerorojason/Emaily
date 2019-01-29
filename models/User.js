@@ -4,7 +4,8 @@ const { Schema } = mongoose;
 
 // mongoose wants to know ahead all the different properties
 const userSchema = new Schema({
-  googleId: String
+  googleId: String,
+  credits: { type: Number, default: 0 }
 });
 
 mongoose.model("users", userSchema);
