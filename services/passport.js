@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const keys = require("../config/keys");
 
 // 用以下方式import user model, 避免testing時有import多次的error
+// const User = require("../models/User");
 const User = mongoose.model("users");
 
 passport.serializeUser((user, done) => {
@@ -45,6 +46,7 @@ passport.use(
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
       callbackURL: "/auth/google/callback",
+      userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
       proxy: true
     },
     async (accessToken, refreshToken, profile, done) => {

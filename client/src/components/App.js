@@ -1,17 +1,12 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
-import Header from "./Header";
 import { connect } from "react-redux"; //let certain components able to call action-creaters as props
 import * as actions from "../actions";
 
+import Header from "./Header";
 import Landing from "./Landing";
-const DashBoard = () => {
-  return <h2>DashBoard</h2>;
-};
-
-const SurveyNew = () => {
-  return <h2>SurveyNew</h2>;
-};
+import DashBoard from "./Dashboard";
+import SurveyNew from "./surveys/SurveyNew";
 
 class App extends Component {
   componentDidMount() {
