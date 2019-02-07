@@ -8,9 +8,9 @@ A web application for startup owner to collect feedback from customers via sendi
 
 
 
-### Instruction and Teck Stack
+### Instruction and Tech Stack
 
-| Step | Description  | Teck |
+| Step | Description  | Tech |
 | :------------ |:---------------| :-----|
 |1|User signs up via Google OAuth|Express server + MongoDB + PassportJS|
 |2|User pays for email credits via stripe|Stripe + MongoDB|
