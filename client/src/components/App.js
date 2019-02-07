@@ -17,12 +17,16 @@ class App extends Component {
     return (
       <div>
         <BrowserRouter>
-          <div className="container">
-            <Header />
-            {/* <Route path="/" exact={true} component={Landing} /> */}
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/surveys" component={DashBoard} />
-            <Route path="/surveys/new" component={SurveyNew} />
+          <div className="background-img">
+            <div className="dark-overlay">
+              <Header />
+              <div className="container ">
+                {/* <Route path="/" exact={true} component={Landing} /> */}
+                <Route exact path="/" component={Landing} />
+                <Route exact path="/surveys" component={DashBoard} />
+                <Route path="/surveys/new" component={SurveyNew} />
+              </div>
+            </div>
           </div>
         </BrowserRouter>
       </div>

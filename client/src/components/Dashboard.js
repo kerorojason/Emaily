@@ -1,15 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import SurveyList from "./surveys/SurveyList";
+import { LinkContainer } from "react-router-bootstrap";
 
 const Dashboard = () => {
   return (
     <div>
       <SurveyList />
       <div className="fixed-action-btn">
-        <Link to="/surveys/new" className="btn-floating btn-large  red">
-          <i className="material-icons">add</i>
-        </Link>
+        <LinkContainer to="/surveys/new">
+          <button className="btn-fixed btn btn-danger btn-circle btn-lg box-shadow">
+            <i className="fas fa-plus fa-1x" />
+          </button>
+        </LinkContainer>
       </div>
     </div>
   );

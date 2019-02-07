@@ -1,0 +1,77 @@
+.container {
+  margin: auto;
+  padding-right: 30px;
+  padding-left: 30px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-right: 100px;
+    padding-left: 100px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    padding-right: 200px;
+    padding-left: 200px;
+  }
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+}
+
+.background-img {
+  background: url("../img/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 700px;
+}
+
+.dark-overlay {
+  /* position: fixed; */
+  background-attachment: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 700px;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.opacity {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.card {
+  opacity: 0.8;
+}
+
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+
+.box-shadow {
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2)
+}
+
+.btn-fixed {
+  position: fixed;
+  right: 30px;
+  bottom: 30px
+}
+
+.white-hr {
+  border-top: 1px solid #6C757D
+}
+
+.mt-10 {
+  padding-top: 10rem !important;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchSurveys } from "../../actions";
+import { Card } from "react-bootstrap";
 
 class SurveyList extends Component {
   constructor() {
@@ -14,25 +15,32 @@ class SurveyList extends Component {
   renderSurveys() {
     return this.props.surveys.reverse().map(survey => {
       return (
-        <div className="card blue-grey darken-1" key={survey._id}>
-          <div className="card-content white-text">
-            <span className="card-title">{survey.title}</span>
-            <p>{survey.body}</p>
-            <p className="right">
+        <Card
+          bg="dark"
+          text="white"
+          // style={{ width: "40rem", margin: "auto " }}
+          key={survey._id}
+          className="mb-2 text-center"
+        >
+          <Card.Header>
+            <h4>{survey.title}</h4>
+            <Card.Text className="text-muted text-right">
               Sent On: {new Date(survey.dateSent).toLocaleDateString()}
-            </p>
-          </div>
-          <div className="card-action">
-            <a>Yes: {survey.yes}</a>
-            <a>No: {survey.no}</a>
-          </div>
-        </div>
+            </Card.Text>
+          </Card.Header>
+          <Card.Body>
+            <Card.Text>{survey.body}</Card.Text>
+          </Card.Body>
+          <Card.Footer>
+            <Card.Link>Yes: {survey.yes}</Card.Link>
+            <Card.Link>No: {survey.no}</Card.Link>
+          </Card.Footer>
+        </Card>
       );
     });
   }
-
   render() {
-    return <div>{this.renderSurveys()}</div>;
+    return <div className="pb-3 ">{this.renderSurveys()}</div>;
   }
 }
 

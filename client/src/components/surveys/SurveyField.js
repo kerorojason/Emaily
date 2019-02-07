@@ -2,17 +2,18 @@
 // label and text input
 
 import React from "react";
+import { Form } from "react-bootstrap";
 
 // export default props => {
 export default ({ input, label, meta: { error, touched } }) => {
   return (
-    <div>
-      <label>{label}</label>
-      <input {...input} style={{ marginBottom: "5px" }} />
+    <Form.Group>
+      <Form.Label>{label}</Form.Label>
+      <Form.Control {...input} style={{ marginBottom: "5px" }} />
       {/* <input onChange={input.onChange} /> */}
-      <div className="red-text" style={{ marginBottom: "20px" }}>
+      <div className="text-danger" style={{ marginBottom: "20px" }}>
         {touched && error}
       </div>
-    </div>
+    </Form.Group>
   );
 };

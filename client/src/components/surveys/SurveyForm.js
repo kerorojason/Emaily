@@ -2,11 +2,23 @@
 import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 import SurveyField from "./SurveyField";
-import { Link } from "react-router-dom";
 import validateEmails from "../../utils/validateEmails";
 import formFields from "./formFields";
+import { Form, Button } from "react-bootstrap";
+import { IndexLinkContainer } from "react-router-bootstrap";
 
 class SurveyForm extends Component {
+  renderFields2() {
+    return formFields.map(({ label, name }) => (
+      <Field
+        key={name}
+        component={SurveyField}
+        type="text"
+        label={label}
+        name={name}
+      />
+    ));
+  }
   renderFields() {
     return formFields.map(({ label, name }) => (
       <Field
@@ -18,21 +30,21 @@ class SurveyForm extends Component {
       />
     ));
   }
-
   render() {
     return (
-      <div>
-        {/* <form onSubmit={this.props.handleSubmit(values => console.log(values))}> */}
-        <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
+      <div className="mt-5 p-4 opacity">
+        <Form
+          className="text-white "
+          onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}
+        >
           {this.renderFields()}
-          <Link to="/surveys" className="red btn-flat white-text">
-            Cancel
-          </Link>
-          <button className="btn-flat teal right white-text" type="submit">
-            Next
-            <i className="material-icons right">done</i>
-          </button>
-        </form>
+          <IndexLinkContainer to="/surveys" activeHref="active">
+            <Button variant="danger">Cancel</Button>
+          </IndexLinkContainer>
+          <Button type="submit" className="float-right">
+            Next <i className="fas fa-check" />
+          </Button>
+        </Form>
       </div>
     );
   }

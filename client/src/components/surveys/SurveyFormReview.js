@@ -3,34 +3,33 @@ import { connect } from "react-redux";
 import formFields from "./formFields";
 import * as actions from "../../actions";
 import { withRouter } from "react-router";
+import { Button } from "react-bootstrap";
 
 const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
   const reviewFields = formFields.map(({ label, name }) => {
     return (
       <div key={name}>
-        <label>{label}</label>
-        <div>{formValues[name]}</div>
+        <p className="text-muted">{label}</p>
+        <p>{formValues[name]}</p>
+        <hr className="white-hr" />
       </div>
     );
   });
 
   return (
-    <div>
-      <h5>Please confirm your entries</h5>
+    <div className="mt-5 p-4 opacity text-white">
+      <h3 className="mb-4">Please confirm your entries</h3>
       {reviewFields}
-      <button
-        onClick={onCancel}
-        className="yellow darken-3 btn-flat white-text"
-      >
+      <Button onClick={onCancel} className="white-text" variant="warning">
         Back
-      </button>
-      <button
+      </Button>
+      <Button
         onClick={() => submitSurvey(formValues, history)}
-        className="green darken-1 right btn-flat white-text"
+        className="white-text float-right"
+        variant="success"
       >
-        Send Survey
-        <i className="material-icons right">email</i>
-      </button>
+        Send Survey <i className="fas fa-envelope" />
+      </Button>
     </div>
   );
 };
